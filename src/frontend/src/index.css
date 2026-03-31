@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    /* Near-black #050705 with green tint */
+    --background: 0.07 0.008 145;
+    /* Off-white #E7E7E7 */
+    --foreground: 0.91 0 0;
+    /* Neon lime #B7FF3C */
+    --primary: 0.92 0.243 129;
+    --primary-foreground: 0.07 0.008 145;
+    /* Dark card #121416 */
+    --card: 0.11 0.005 240;
+    --card-foreground: 0.91 0 0;
+    --popover: 0.11 0.005 240;
+    --popover-foreground: 0.91 0 0;
+    --secondary: 0.14 0.008 145;
+    --secondary-foreground: 0.91 0 0;
+    --muted: 0.15 0.005 145;
+    --muted-foreground: 0.6 0 0;
+    --accent: 0.92 0.243 129;
+    --accent-foreground: 0.07 0.008 145;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.28 0.04 145;
+    --input: 0.18 0.008 145;
+    --ring: 0.92 0.243 129;
+    --chart-1: 0.92 0.243 129;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.09 0.006 145;
+    --sidebar-foreground: 0.91 0 0;
+    --sidebar-primary: 0.92 0.243 129;
+    --sidebar-primary-foreground: 0.07 0.008 145;
+    --sidebar-accent: 0.14 0.008 145;
+    --sidebar-accent-foreground: 0.91 0 0;
+    --sidebar-border: 0.28 0.04 145;
+    --sidebar-ring: 0.92 0.243 129;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+
+  .text-neon {
+    color: #b7ff3c;
+    text-shadow: 0 0 15px rgba(183, 255, 60, 0.9), 0 0 40px
+      rgba(183, 255, 60, 0.55), 0 0 80px rgba(183, 255, 60, 0.25);
+  }
+
+  .text-neon-sm {
+    color: #b7ff3c;
+    text-shadow: 0 0 8px rgba(183, 255, 60, 0.7), 0 0 20px
+      rgba(183, 255, 60, 0.35);
+  }
+
+  .text-neon-hero {
+    color: #b7ff3c;
+    text-shadow: 0 0 30px rgba(183, 255, 60, 1), 0 0 70px
+      rgba(183, 255, 60, 0.65), 0 0 140px rgba(183, 255, 60, 0.35), 0 0 240px
+      rgba(183, 255, 60, 0.15);
+  }
+
+  .card-neon {
+    background: rgba(17, 19, 22, 0.92);
+    border: 1px solid rgba(183, 255, 60, 0.25);
+    box-shadow: 0 0 25px rgba(183, 255, 60, 0.04), inset 0 1px 0
+      rgba(183, 255, 60, 0.08);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .card-neon:hover {
+    border-color: rgba(183, 255, 60, 0.65);
+    box-shadow: 0 0 40px rgba(183, 255, 60, 0.18), 0 0 80px
+      rgba(183, 255, 60, 0.06), inset 0 1px 0 rgba(183, 255, 60, 0.18);
+  }
+
+  .btn-neon-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1.5px solid #b7ff3c;
+    color: #b7ff3c;
+    background: transparent;
+    border-radius: 9999px;
+    padding: 0.75rem 2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    box-shadow: 0 0 12px rgba(183, 255, 60, 0.25), inset 0 0 12px
+      rgba(183, 255, 60, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-neon-outline:hover {
+    background: rgba(183, 255, 60, 0.1);
+    box-shadow: 0 0 30px rgba(183, 255, 60, 0.45), 0 0 60px
+      rgba(183, 255, 60, 0.15), inset 0 0 20px rgba(183, 255, 60, 0.08);
+  }
+
+  .btn-neon-solid {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: none;
+    color: #050705;
+    background: #b7ff3c;
+    border-radius: 9999px;
+    padding: 0.75rem 2rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    box-shadow: 0 0 20px rgba(183, 255, 60, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-neon-solid:hover {
+    background: #c8ff5a;
+    box-shadow: 0 0 35px rgba(183, 255, 60, 0.7);
+  }
+
+  .divider-neon {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(183, 255, 60, 0.5) 50%,
+      transparent 100%
+    );
+  }
+
+  .section-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s
+      cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .section-reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-reveal.delay-1 {
+    transition-delay: 0.1s;
+  }
+  .section-reveal.delay-2 {
+    transition-delay: 0.2s;
+  }
+  .section-reveal.delay-3 {
+    transition-delay: 0.3s;
+  }
+  .section-reveal.delay-4 {
+    transition-delay: 0.4s;
+  }
+
+  .icon-neon {
+    color: #b7ff3c;
+    filter: drop-shadow(0 0 6px rgba(183, 255, 60, 0.7));
+  }
+
+  .navbar-blur {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(5, 7, 5, 0.8);
+    border-bottom: 1px solid rgba(183, 255, 60, 0.1);
+  }
+}
